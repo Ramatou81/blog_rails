@@ -1,0 +1,23 @@
+<%= form_with model: article do |form| %>
+
+  <div class="invalid-feedback d-block">
+    <% article.errors.each do |error_message| %>
+      <%= error_message.full_message %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status, Article.statuses.keys %> 
+  </div>
+
+  <%= form.submit %>
+<% end %>
